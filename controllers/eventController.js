@@ -3,9 +3,9 @@ const Event = require("../models/Event");
 const axios = require("axios");
 
 const oauth2Client = new google.auth.OAuth2(
-  "198981870943-60flsecdvvrqtikgr0p2f5eg801j23su.apps.googleusercontent.com",
-  "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",
-  "http://localhost:5000/api/events/oauth2callback"
+  "1019918519182-bb74on44ac9gg4faq9rsml1tm3gn22pp.apps.googleusercontent.com",
+  "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",
+  "https://event-server-dp.onrender.com/api/events/oauth2callback"
 );
 
 async function AuthCallback(req, res) {
@@ -28,7 +28,7 @@ async function AuthCallback(req, res) {
     console.log(userInfo);
 
     // Construct redirect URL with user details
-    const redirectUrl = `http://localhost:3000/login?access_token=${tokens.access_token}&refresh_token=${tokens.refresh_token}&scope=${tokens.scope}&token_type=${tokens.token_type}&expiry_date=${tokens.expiry_date}&email=${userInfo.email}&name=${userInfo.name}&gid=${userInfo.id}`;
+    const redirectUrl = `https://event-app-durgaprasad-2002s-projects.vercel.app/login?access_token=${tokens.access_token}&refresh_token=${tokens.refresh_token}&scope=${tokens.scope}&token_type=${tokens.token_type}&expiry_date=${tokens.expiry_date}&email=${userInfo.email}&name=${userInfo.name}&gid=${userInfo.id}`;
 
     res.redirect(redirectUrl);
   } catch (err) {
